@@ -23,13 +23,19 @@ namespace htlpzf_project
         {
             InitializeComponent();
 
+            purchaseDate.Format = DateTimePickerFormat.Custom;
+            purchaseDate.CustomFormat = "yyyy/MM";
+
+           sellinDate.Format = DateTimePickerFormat.Custom;
+            sellinDate.CustomFormat = "yyyy/MM";
+
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             OpenFileDialog opfd = new OpenFileDialog();
             opfd.Multiselect = false;
-            opfd.Filter = "CSV files (.csv)|.csv";
+            //opfd.Filter = "CSV files (.csv)|.csv";
             if (opfd.ShowDialog() == DialogResult.OK)
             {
                 string csvpath = opfd.FileName;
@@ -49,6 +55,7 @@ namespace htlpzf_project
                 };
                 goldlbl.Text = "Success";
                 goldlbl.ForeColor = Color.Green;
+                goldPricegrid.DataSource = goldPrices;
             }
 
         }
@@ -57,7 +64,7 @@ namespace htlpzf_project
         {
             OpenFileDialog opfd = new OpenFileDialog();
             opfd.Multiselect = false;
-            opfd.Filter = "CSV files (.csv)|.csv";
+           // opfd.Filter = "CSV files (.csv)|.csv";
             if (opfd.ShowDialog() == DialogResult.OK)
             {
                 string csvpath = opfd.FileName;
@@ -77,6 +84,7 @@ namespace htlpzf_project
                 };
                 breadlbl.Text = "Success";
                 breadlbl.ForeColor = Color.Green;
+                breadPricegrid.DataSource = breadPrices;
             }
 
         }
@@ -85,7 +93,7 @@ namespace htlpzf_project
         {
             OpenFileDialog opfd = new OpenFileDialog();
             opfd.Multiselect = false;
-            opfd.Filter = "CSV files (.csv)|.csv";
+           // opfd.Filter = "CSV files (.csv)|.csv";
             if (opfd.ShowDialog() == DialogResult.OK)
             {
                 string csvpath = opfd.FileName;
@@ -106,6 +114,13 @@ namespace htlpzf_project
                 };
                 exchnglbl.Text = "Success";
                 exchnglbl.ForeColor = Color.Green;
+                exchngRategrid.DataSource = exchangeRates;
+                var distCountries = (from x in exchangeRates select x.Country).Distinct();
+                foreach (var item in distCountries)
+                {
+                    countrycombo.Items.Add(item);
+                }
+                countrycombo.Enabled = true;
 
             }
         }
