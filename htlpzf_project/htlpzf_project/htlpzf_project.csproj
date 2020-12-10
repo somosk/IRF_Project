@@ -46,6 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Entities\BreadPrice.cs" />
+    <Compile Include="Entities\ExchangeRates.cs" />
+    <Compile Include="Entities\GoldPrice.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
