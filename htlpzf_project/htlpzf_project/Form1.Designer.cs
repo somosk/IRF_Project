@@ -42,16 +42,17 @@
             this.label2 = new System.Windows.Forms.Label();
             this.purchaseDatapanel = new System.Windows.Forms.Panel();
             this.label3 = new System.Windows.Forms.Label();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.purchaseAmount = new System.Windows.Forms.NumericUpDown();
             this.label4 = new System.Windows.Forms.Label();
             this.purchaseDate = new System.Windows.Forms.DateTimePicker();
             this.label5 = new System.Windows.Forms.Label();
             this.sellinDate = new System.Windows.Forms.DateTimePicker();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.goldPricegrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.breadPricegrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.exchngRategrid)).BeginInit();
             this.purchaseDatapanel.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.purchaseAmount)).BeginInit();
             this.SuspendLayout();
             // 
             // LoadGoldbtn
@@ -174,11 +175,12 @@
             // 
             // purchaseDatapanel
             // 
+            this.purchaseDatapanel.Controls.Add(this.button1);
             this.purchaseDatapanel.Controls.Add(this.sellinDate);
             this.purchaseDatapanel.Controls.Add(this.label5);
             this.purchaseDatapanel.Controls.Add(this.purchaseDate);
             this.purchaseDatapanel.Controls.Add(this.label4);
-            this.purchaseDatapanel.Controls.Add(this.numericUpDown1);
+            this.purchaseDatapanel.Controls.Add(this.purchaseAmount);
             this.purchaseDatapanel.Controls.Add(this.label3);
             this.purchaseDatapanel.Controls.Add(this.countrycombo);
             this.purchaseDatapanel.Controls.Add(this.label2);
@@ -199,13 +201,13 @@
             this.label3.TabIndex = 12;
             this.label3.Text = "Amount";
             // 
-            // numericUpDown1
+            // purchaseAmount
             // 
-            this.numericUpDown1.InterceptArrowKeys = false;
-            this.numericUpDown1.Location = new System.Drawing.Point(59, 56);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(153, 20);
-            this.numericUpDown1.TabIndex = 13;
+            this.purchaseAmount.InterceptArrowKeys = false;
+            this.purchaseAmount.Location = new System.Drawing.Point(59, 56);
+            this.purchaseAmount.Name = "purchaseAmount";
+            this.purchaseAmount.Size = new System.Drawing.Size(153, 20);
+            this.purchaseAmount.TabIndex = 13;
             // 
             // label4
             // 
@@ -220,9 +222,10 @@
             // 
             // purchaseDate
             // 
+            this.purchaseDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.purchaseDate.Location = new System.Drawing.Point(330, 26);
             this.purchaseDate.Name = "purchaseDate";
-            this.purchaseDate.Size = new System.Drawing.Size(200, 20);
+            this.purchaseDate.Size = new System.Drawing.Size(80, 20);
             this.purchaseDate.TabIndex = 15;
             // 
             // label5
@@ -238,10 +241,21 @@
             // 
             // sellinDate
             // 
+            this.sellinDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
             this.sellinDate.Location = new System.Drawing.Point(330, 56);
             this.sellinDate.Name = "sellinDate";
-            this.sellinDate.Size = new System.Drawing.Size(200, 20);
+            this.sellinDate.Size = new System.Drawing.Size(80, 20);
             this.sellinDate.TabIndex = 17;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(416, 23);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(114, 55);
+            this.button1.TabIndex = 13;
+            this.button1.Text = "Create forecast";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
             // Form1
             // 
@@ -265,7 +279,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.exchngRategrid)).EndInit();
             this.purchaseDatapanel.ResumeLayout(false);
             this.purchaseDatapanel.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.purchaseAmount)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -288,10 +302,11 @@
         private System.Windows.Forms.Panel purchaseDatapanel;
         private System.Windows.Forms.DateTimePicker purchaseDate;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.NumericUpDown purchaseAmount;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.DateTimePicker sellinDate;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Button button1;
     }
 }
 

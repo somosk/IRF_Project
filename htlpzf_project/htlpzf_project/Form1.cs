@@ -124,5 +124,17 @@ namespace htlpzf_project
 
             }
         }
+
+        private void button1_Click_1(object sender, EventArgs e)
+        {
+            if (countrycombo.SelectedItem==null || purchaseAmount.Value==0 || purchaseDate.Value>sellinDate.Value)
+            {
+                MessageBox.Show("Please fill/correct purchase data!");
+            }
+            else
+            {
+                    
+            }
+        }
     }
 }
