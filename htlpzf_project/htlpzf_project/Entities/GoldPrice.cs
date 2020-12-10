@@ -8,7 +8,7 @@ namespace htlpzf_project.Entities
 {
     public class GoldPrice
     {
-        int year { get; set; }
-        double price { get; set; }
+        public int year { get; set; }
+        public double price { get; set; }
     }
 }

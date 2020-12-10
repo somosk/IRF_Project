@@ -1,4 +1,5 @@
-﻿using System;
+﻿using htlpzf_project.Entities;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -14,16 +15,22 @@ namespace htlpzf_project
 {
     public partial class Form1 : Form
     {
+        List<ExchangeRates> exchangeRates = new List<ExchangeRates>();
+        List<GoldPrice> goldPrices = new List<GoldPrice>();
+        List<BreadPrice> breadPrices = new List<BreadPrice>();
 
         public Form1()
         {
             InitializeComponent();
+
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
             OpenFileDialog opfd = new OpenFileDialog();
-            if (opfd.ShowDialog()==DialogResult.OK)
+            opfd.Multiselect = false;
+            opfd.Filter = "CSV files (.csv)|.csv";
+            if (opfd.ShowDialog() == DialogResult.OK)
             {
                 string csvpath = opfd.FileName;
                 using (StreamReader sr = new StreamReader(csvpath, Encoding.Default))
@@ -31,10 +38,76 @@ namespace htlpzf_project
                     while (!sr.EndOfStream)
                     {
 
+
+                        var line = sr.ReadLine().Split(';');
+                        goldPrices.Add(new GoldPrice()
+                        {
+                            year = int.Parse(line[0]),
+                            price = double.Parse(line[1])
+                        });
                     }
-                } ;
+                };
+                goldlbl.Text = "Success";
+                goldlbl.ForeColor = Color.Green;
             }
-            
+
+        }
+
+        private void LoadBreadbtn_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog opfd = new OpenFileDialog();
+            opfd.Multiselect = false;
+            opfd.Filter = "CSV files (.csv)|.csv";
+            if (opfd.ShowDialog() == DialogResult.OK)
+            {
+                string csvpath = opfd.FileName;
+                using (StreamReader sr = new StreamReader(csvpath, Encoding.Default))
+                {
+                    while (!sr.EndOfStream)
+                    {
+
+
+                        var line = sr.ReadLine().Split(';');
+                        breadPrices.Add(new BreadPrice()
+                        {
+                            year = int.Parse(line[0]),
+                            price = double.Parse(line[1])
+                        });
+                    }
+                };
+                breadlbl.Text = "Success";
+                breadlbl.ForeColor = Color.Green;
+            }
+
+        }
+
+        private void LoadEchbtn_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog opfd = new OpenFileDialog();
+            opfd.Multiselect = false;
+            opfd.Filter = "CSV files (.csv)|.csv";
+            if (opfd.ShowDialog() == DialogResult.OK)
+            {
+                string csvpath = opfd.FileName;
+                using (StreamReader sr = new StreamReader(csvpath, Encoding.Default))
+                {
+                    while (!sr.EndOfStream)
+                    {
+
+
+                        var line = sr.ReadLine().Split(';');
+                        exchangeRates.Add(new ExchangeRates()
+                        {
+                            year = int.Parse(line[0]),
+                            Country = line[1],
+                            rate = double.Parse(line[2])
+                        });
+                    }
+                };
+                exchnglbl.Text = "Success";
+                exchnglbl.ForeColor = Color.Green;
+
+            }
         }
     }
 }
