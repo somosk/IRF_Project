@@ -124,15 +124,28 @@ namespace htlpzf_project
 
             }
         }
-
+        List<ForeCast> foreCast = new List<ForeCast>();
         private void button1_Click_1(object sender, EventArgs e)
         {
+            foreCast.Clear();
             if (countrycombo.SelectedItem==null || purchaseAmount.Value==0 || purchaseDate.Value>sellinDate.Value)
             {
                 MessageBox.Show("Please fill/correct purchase data!");
             }
             else
             {
+                for (int i = purchaseDate.Value.Year; i <= sellinDate.Value.Year ; i++)
+                {
+                    foreCast.Add(new ForeCast()
+                    {
+                        _year = i
+                        
+                    });
+                    
+
+                }
+                
+                forecastgrid.DataSource = foreCast;
                     
             }
         }

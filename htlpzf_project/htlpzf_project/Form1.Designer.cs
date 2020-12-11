@@ -48,11 +48,13 @@
             this.label4 = new System.Windows.Forms.Label();
             this.purchaseAmount = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
+            this.forecastgrid = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.goldPricegrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.breadPricegrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.exchngRategrid)).BeginInit();
             this.purchaseDatapanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.purchaseAmount)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.forecastgrid)).BeginInit();
             this.SuspendLayout();
             // 
             // LoadGoldbtn
@@ -257,11 +259,20 @@
             this.label3.TabIndex = 12;
             this.label3.Text = "Amount";
             // 
+            // forecastgrid
+            // 
+            this.forecastgrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.forecastgrid.Location = new System.Drawing.Point(846, 99);
+            this.forecastgrid.Name = "forecastgrid";
+            this.forecastgrid.Size = new System.Drawing.Size(240, 339);
+            this.forecastgrid.TabIndex = 13;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(985, 450);
+            this.ClientSize = new System.Drawing.Size(1098, 450);
+            this.Controls.Add(this.forecastgrid);
             this.Controls.Add(this.purchaseDatapanel);
             this.Controls.Add(this.exchngRategrid);
             this.Controls.Add(this.breadPricegrid);
@@ -280,6 +291,7 @@
             this.purchaseDatapanel.ResumeLayout(false);
             this.purchaseDatapanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.purchaseAmount)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.forecastgrid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -307,6 +319,7 @@
         private System.Windows.Forms.DateTimePicker sellinDate;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.DataGridView forecastgrid;
     }
 }
 
