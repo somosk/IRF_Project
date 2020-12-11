@@ -41,13 +41,13 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.purchaseDatapanel = new System.Windows.Forms.Panel();
-            this.label3 = new System.Windows.Forms.Label();
-            this.purchaseAmount = new System.Windows.Forms.NumericUpDown();
-            this.label4 = new System.Windows.Forms.Label();
-            this.purchaseDate = new System.Windows.Forms.DateTimePicker();
-            this.label5 = new System.Windows.Forms.Label();
-            this.sellinDate = new System.Windows.Forms.DateTimePicker();
             this.button1 = new System.Windows.Forms.Button();
+            this.sellinDate = new System.Windows.Forms.DateTimePicker();
+            this.label5 = new System.Windows.Forms.Label();
+            this.purchaseDate = new System.Windows.Forms.DateTimePicker();
+            this.label4 = new System.Windows.Forms.Label();
+            this.purchaseAmount = new System.Windows.Forms.NumericUpDown();
+            this.label3 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.goldPricegrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.breadPricegrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.exchngRategrid)).BeginInit();
@@ -190,43 +190,23 @@
             this.purchaseDatapanel.Size = new System.Drawing.Size(533, 81);
             this.purchaseDatapanel.TabIndex = 12;
             // 
-            // label3
+            // button1
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label3.ForeColor = System.Drawing.Color.Black;
-            this.label3.Location = new System.Drawing.Point(4, 58);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(49, 13);
-            this.label3.TabIndex = 12;
-            this.label3.Text = "Amount";
+            this.button1.Location = new System.Drawing.Point(416, 23);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(114, 55);
+            this.button1.TabIndex = 13;
+            this.button1.Text = "Create forecast";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
             // 
-            // purchaseAmount
+            // sellinDate
             // 
-            this.purchaseAmount.InterceptArrowKeys = false;
-            this.purchaseAmount.Location = new System.Drawing.Point(59, 56);
-            this.purchaseAmount.Name = "purchaseAmount";
-            this.purchaseAmount.Size = new System.Drawing.Size(153, 20);
-            this.purchaseAmount.TabIndex = 13;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label4.ForeColor = System.Drawing.Color.Black;
-            this.label4.Location = new System.Drawing.Point(237, 29);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(91, 13);
-            this.label4.TabIndex = 14;
-            this.label4.Text = "Purchase Date";
-            // 
-            // purchaseDate
-            // 
-            this.purchaseDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.purchaseDate.Location = new System.Drawing.Point(330, 26);
-            this.purchaseDate.Name = "purchaseDate";
-            this.purchaseDate.Size = new System.Drawing.Size(80, 20);
-            this.purchaseDate.TabIndex = 15;
+            this.sellinDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.sellinDate.Location = new System.Drawing.Point(330, 56);
+            this.sellinDate.Name = "sellinDate";
+            this.sellinDate.Size = new System.Drawing.Size(80, 20);
+            this.sellinDate.TabIndex = 17;
             // 
             // label5
             // 
@@ -239,29 +219,49 @@
             this.label5.TabIndex = 16;
             this.label5.Text = "Selling Date";
             // 
-            // sellinDate
+            // purchaseDate
             // 
-            this.sellinDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
-            this.sellinDate.Location = new System.Drawing.Point(330, 56);
-            this.sellinDate.Name = "sellinDate";
-            this.sellinDate.Size = new System.Drawing.Size(80, 20);
-            this.sellinDate.TabIndex = 17;
+            this.purchaseDate.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.purchaseDate.Location = new System.Drawing.Point(330, 26);
+            this.purchaseDate.Name = "purchaseDate";
+            this.purchaseDate.Size = new System.Drawing.Size(80, 20);
+            this.purchaseDate.TabIndex = 15;
             // 
-            // button1
+            // label4
             // 
-            this.button1.Location = new System.Drawing.Point(416, 23);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(114, 55);
-            this.button1.TabIndex = 13;
-            this.button1.Text = "Create forecast";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label4.ForeColor = System.Drawing.Color.Black;
+            this.label4.Location = new System.Drawing.Point(237, 29);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(91, 13);
+            this.label4.TabIndex = 14;
+            this.label4.Text = "Purchase Date";
+            // 
+            // purchaseAmount
+            // 
+            this.purchaseAmount.InterceptArrowKeys = false;
+            this.purchaseAmount.Location = new System.Drawing.Point(59, 56);
+            this.purchaseAmount.Name = "purchaseAmount";
+            this.purchaseAmount.Size = new System.Drawing.Size(153, 20);
+            this.purchaseAmount.TabIndex = 13;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label3.ForeColor = System.Drawing.Color.Black;
+            this.label3.Location = new System.Drawing.Point(4, 58);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(49, 13);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "Amount";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(985, 450);
             this.Controls.Add(this.purchaseDatapanel);
             this.Controls.Add(this.exchngRategrid);
             this.Controls.Add(this.breadPricegrid);
