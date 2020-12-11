@@ -49,6 +49,8 @@
             this.purchaseAmount = new System.Windows.Forms.NumericUpDown();
             this.label3 = new System.Windows.Forms.Label();
             this.forecastgrid = new System.Windows.Forms.DataGridView();
+            this.exportExcelbtn = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.goldPricegrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.breadPricegrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.exchngRategrid)).BeginInit();
@@ -262,16 +264,35 @@
             // forecastgrid
             // 
             this.forecastgrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.forecastgrid.Location = new System.Drawing.Point(846, 99);
+            this.forecastgrid.Location = new System.Drawing.Point(759, 99);
             this.forecastgrid.Name = "forecastgrid";
             this.forecastgrid.Size = new System.Drawing.Size(240, 339);
             this.forecastgrid.TabIndex = 13;
+            // 
+            // exportExcelbtn
+            // 
+            this.exportExcelbtn.Location = new System.Drawing.Point(759, 75);
+            this.exportExcelbtn.Name = "exportExcelbtn";
+            this.exportExcelbtn.Size = new System.Drawing.Size(239, 21);
+            this.exportExcelbtn.TabIndex = 18;
+            this.exportExcelbtn.Text = "Export to Excel";
+            this.exportExcelbtn.UseVisualStyleBackColor = true;
+            this.exportExcelbtn.Click += new System.EventHandler(this.exportExcelbtn_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.Location = new System.Drawing.Point(760, 12);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(238, 57);
+            this.panel1.TabIndex = 19;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1098, 450);
+            this.ClientSize = new System.Drawing.Size(1010, 450);
+            this.Controls.Add(this.panel1);
+            this.Controls.Add(this.exportExcelbtn);
             this.Controls.Add(this.forecastgrid);
             this.Controls.Add(this.purchaseDatapanel);
             this.Controls.Add(this.exchngRategrid);
@@ -320,6 +341,8 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView forecastgrid;
+        private System.Windows.Forms.Button exportExcelbtn;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 

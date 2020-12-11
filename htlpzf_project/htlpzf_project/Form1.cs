@@ -9,6 +9,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Excel = Microsoft.Office.Interop.Excel;
+using System.Reflection;
 
 
 namespace htlpzf_project
@@ -18,6 +20,11 @@ namespace htlpzf_project
         List<ExchangeRates> exchangeRates = new List<ExchangeRates>();
         List<GoldPrice> goldPrices = new List<GoldPrice>();
         List<BreadPrice> breadPrices = new List<BreadPrice>();
+
+
+        Excel.Application xlApp; // A Microsoft Excel alkalmazás
+        Excel.Workbook xlWB; // A létrehozott munkafüzet
+        Excel.Worksheet xlSheet; // Munkalap a munkafüzeten belül
 
         public Form1()
         {
@@ -148,6 +155,114 @@ namespace htlpzf_project
                 forecastgrid.DataSource = foreCast;
                     
             }
+        }
+
+        private void exportExcelbtn_Click(object sender, EventArgs e)
+        {
+            CreateExcel();
+            CreateTable();
+        }
+
+        private void CreateTable()
+        {
+            string[] headers = new string[] {
+                 "Year",
+                 "Bread Price (USD)",
+                 "Gold Price (USD)",
+                 "Exchange Rate",
+                 "Gold Price in Selected Currency"
+                 };
+            for (int i = 0; i < headers.Length; i++)
+            {
+                xlSheet.Cells[1, i + 1] = headers[i];
+            }
+            object[,] values = new object[foreCast.Count, headers.Length];
+            int counter = 0;
+            foreach (ForeCast f in foreCast)
+            {
+                values[counter, 0] = f.year;
+                values[counter, 1] = f.gold;
+                values[counter, 2] = f.bread;
+                values[counter, 3] = 2; // ide jön majd a vlautakalkulátor
+                
+                values[counter, 4] = "=(" + GetCell(counter + 2, 2)+"*"+purchaseAmount.Value+"*"+ GetCell(counter + 2, 4)+")";
+                
+                counter++;
+            }
+            xlSheet.get_Range(
+             GetCell(2, 1),
+             GetCell(1 + values.GetLength(0), values.GetLength(1))).Value2 = values;
+
+            Excel.Range headerRange = xlSheet.get_Range(GetCell(1, 1), GetCell(1, headers.Length));
+            headerRange.Font.Bold = true;
+            headerRange.VerticalAlignment = Excel.XlVAlign.xlVAlignCenter;
+            headerRange.HorizontalAlignment = Excel.XlHAlign.xlHAlignCenter;
+            headerRange.EntireColumn.AutoFit();
+            headerRange.RowHeight = 40;
+            headerRange.Interior.Color = Color.LightBlue;
+            headerRange.BorderAround2(Excel.XlLineStyle.xlContinuous, Excel.XlBorderWeight.xlThick);
+
+            Excel.Range TableRange = xlSheet.get_Range(GetCell(2, 1), GetCell(counter + 1, headers.Length));
+            TableRange.BorderAround2(Excel.XlLineStyle.xlContinuous, Excel.XlBorderWeight.xlThick);
+
+            Excel.Range FirstColRange = xlSheet.get_Range(GetCell(2, 1), GetCell(counter + 1, 1));
+            FirstColRange.Interior.Color = Color.LightYellow;
+            FirstColRange.Font.Bold = true;
+
+            Excel.Range LastColRange = xlSheet.get_Range(GetCell(2, headers.Length), GetCell(counter + 1, headers.Length));
+            LastColRange.Interior.Color = Color.LightGreen;
+            LastColRange.NumberFormat = "0.00";
+        }
+
+        private void CreateExcel()
+        {
+            try
+            {
+                // Excel elindítása és az applikáció objektum betöltése
+                xlApp = new Excel.Application();
+
+                // Új munkafüzet
+                xlWB = xlApp.Workbooks.Add(Missing.Value);
+
+                // Új munkalap
+                xlSheet = xlWB.ActiveSheet;
+
+                // Tábla létrehozása
+                CreateTable();
+
+                // Control átadása a felhasználónak
+                xlApp.Visible = true;
+                xlApp.UserControl = true;
+            }
+            catch (Exception ex) // Hibakezelés a beépített hibaüzenettel
+            {
+                string errMsg = string.Format("Error: {0}\nLine: {1}", ex.Message, ex.Source);
+                MessageBox.Show(errMsg, "Error");
+
+                // Hiba esetén az Excel applikáció bezárása automatikusan
+                xlWB.Close(false, Type.Missing, Type.Missing);
+                xlApp.Quit();
+                xlWB = null;
+                xlApp = null;
+            }
+        }
+        private string GetCell(int x, int y)
+        {
+            string ExcelCoordinate = "";
+            int dividend = y;
+            int modulo;
+
+            while (dividend > 0)
+            {
+                modulo = (dividend - 1) % 26;
+                ExcelCoordinate = Convert.ToChar(65 + modulo).ToString() + ExcelCoordinate;
+                dividend = (int)((dividend - modulo) / 26);
+            }
+            ExcelCoordinate += x.ToString();
+
+            return ExcelCoordinate;
+
+
         }
     }
 }
