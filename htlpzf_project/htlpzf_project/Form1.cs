@@ -161,6 +161,81 @@ namespace htlpzf_project
         {
             CreateExcel();
             CreateTable();
+
+            DrawNumber();
+        }
+        public string maxvalue;
+        public bool[,] bg = new bool[36,36];
+        //List<bool> bg = new List<bool>();
+        
+        private void DrawNumber()
+        {
+            maxvalue = "1111"; 
+                //(Math.Round((from x in foreCast select x.gold).Max(),0)).ToString();
+            for (int i = 0; i < maxvalue.Length; i++)
+            {
+                switch (maxvalue[i].ToString())
+                {
+                    case "1":
+                              bg[1, 1] = false;
+                              bg[1, 2] =false;
+                              bg[1, 3] =false;
+                              bg[1, 4] =false;
+                              bg[1, 5] =false;
+                              bg[1, 6] =false;
+                              bg[1, 7] =false;
+                              bg[1, 8] =false;
+                              bg[1, 9] =false;
+                              bg[2, 1] =false;
+                              bg[2, 2] =false;
+                              bg[2, 3] =false;
+                              bg[2, 4] =false;
+                              bg[2, 5] =false;
+                              bg[2, 6] =false;
+                              bg[2, 7] =false;
+                              bg[2, 8] =false;
+                              bg[2, 9] =false;
+                              bg[3, 1] =false;
+                              bg[3, 2] =false;
+                              bg[3, 3] =false;
+                              bg[3, 4] =false;
+                              bg[3, 5] =false;
+                              bg[3, 6] =false;
+                              bg[3, 7] =false;
+                              bg[3, 8] =false;
+                              bg[3, 9] =false;
+                              bg[4, 1] =true;
+                              bg[4, 2] =true;
+                              bg[4, 3] =true;
+                              bg[4, 4] =true;
+                              bg[4, 5] =true;
+                              bg[4, 6] =true;
+                              bg[4, 7] =true;
+                              bg[4, 8] =true;
+                              bg[4, 9] = true;
+
+                        break;
+
+                    
+
+
+                }
+                for (int x = 1; x <= 4; x++)
+                {
+                    for (int y = 1; y <= 9; y++)
+                    {
+                        panel1.Controls.Add(new DigitalNumber() {
+                            isfilled = bg[x, y],
+                            sor = x,
+                            oszlop=y
+                        });
+
+                    }
+
+                }
+                
+            }
+            
         }
 
         private void CreateTable()
