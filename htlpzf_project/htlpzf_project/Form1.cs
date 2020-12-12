@@ -155,29 +155,47 @@ namespace htlpzf_project
                 forecastgrid.DataSource = foreCast;
                     
             }
+            exportExcelbtn.Enabled = true;
         }
 
         private void exportExcelbtn_Click(object sender, EventArgs e)
         {
-            CreateExcel();
-            CreateTable();
+            //CreateExcel();
+            //CreateTable();
 
             DrawNumber();
+            //Shine();
         }
+
+        private void Shine()
+        {
+            panel2.Controls.Clear();
+            List<Control> ctrls = new List<Control>();
+            foreach (Control c in panel1.Controls)
+            {
+                ctrls.Add(c);
+            }
+            
+            panel2.Controls.AddRange(ctrls.ToArray());
+            
+        }
+
         public string maxvalue;
         public bool[,] bg = new bool[36,36];
         //List<bool> bg = new List<bool>();
         
         private void DrawNumber()
         {
-            maxvalue = "1111"; 
+            panel1.Controls.Clear();
+            maxvalue = "1234"; 
                 //(Math.Round((from x in foreCast select x.gold).Max(),0)).ToString();
             for (int i = 0; i < maxvalue.Length; i++)
             {
-                switch (maxvalue[i].ToString())
+                string szamjegy = maxvalue[i].ToString();
+                switch (szamjegy)
                 {
                     case "1":
-                              bg[1, 1] = false;
+                              bg[1, 1] =false; 
                               bg[1, 2] =false;
                               bg[1, 3] =false;
                               bg[1, 4] =false;
@@ -186,16 +204,18 @@ namespace htlpzf_project
                               bg[1, 7] =false;
                               bg[1, 8] =false;
                               bg[1, 9] =false;
-                              bg[2, 1] =false;
-                              bg[2, 2] =false;
-                              bg[2, 3] =false;
-                              bg[2, 4] =false;
-                              bg[2, 5] =false;
-                              bg[2, 6] =false;
-                              bg[2, 7] =false;
-                              bg[2, 8] =false;
-                              bg[2, 9] =false;
+
+                              bg[2, 1] = false;
+                              bg[2, 2] = false;
+                              bg[2, 3] = false;
+                              bg[2, 4] = false;
+                              bg[2, 5] = false;
+                              bg[2, 6] = false;
+                              bg[2, 7] = false;
+                              bg[2, 8] = false;
+                              bg[2, 9] = false;
                               bg[3, 1] =false;
+
                               bg[3, 2] =false;
                               bg[3, 3] =false;
                               bg[3, 4] =false;
@@ -204,6 +224,7 @@ namespace htlpzf_project
                               bg[3, 7] =false;
                               bg[3, 8] =false;
                               bg[3, 9] =false;
+
                               bg[4, 1] =true;
                               bg[4, 2] =true;
                               bg[4, 3] =true;
@@ -216,19 +237,405 @@ namespace htlpzf_project
 
                         break;
 
-                    
+                    case "2":
+                        bg[1, 1] = true;
+                        bg[1, 2] = false;
+                        bg[1, 3] = false;
+                        bg[1, 4] = false;
+                        bg[1, 5] = true;
+                        bg[1, 6] = true;
+                        bg[1, 7] = true;
+                        bg[1, 8] = true;
+                        bg[1, 9] = true;
 
+                        bg[2, 1] = true;
+                        bg[2, 2] = false;
+                        bg[2, 3] = false;
+                        bg[2, 4] = false;
+                        bg[2, 5] = true;
+                        bg[2, 6] = false;
+                        bg[2, 7] = false;
+                        bg[2, 8] = false;
+                        bg[2, 9] = true;
 
+                        bg[3, 1] = true;
+                        bg[3, 2] = false;
+                        bg[3, 3] = false;
+                        bg[3, 4] = false;
+                        bg[3, 5] = true;
+                        bg[3, 6] = false;
+                        bg[3, 7] = false;
+                        bg[3, 8] = false;
+                        bg[3, 9] = true;
+
+                        bg[4, 1] = true;
+                        bg[4, 2] = true;
+                        bg[4, 3] = true;
+                        bg[4, 4] = true;
+                        bg[4, 5] = true;
+                        bg[4, 6] = false;
+                        bg[4, 7] = false;
+                        bg[4, 8] = false;
+                        bg[4, 9] = true;
+
+                        break;
+
+                    case "3":
+                        bg[1, 1] = true;
+                        bg[1, 2] = false;
+                        bg[1, 3] = false;
+                        bg[1, 4] = false;
+                        bg[1, 5] = false;
+                        bg[1, 6] = false;
+                        bg[1, 7] = false;
+                        bg[1, 8] = false;
+                        bg[1, 9] = true;
+
+                        bg[2, 1] = true;
+                        bg[2, 2] = false;
+                        bg[2, 3] = false;
+                        bg[2, 4] = false;
+                        bg[2, 5] = true;
+                        bg[2, 6] = false;
+                        bg[2, 7] = false;
+                        bg[2, 8] = false;
+                        bg[2, 9] = true;
+
+                        bg[3, 1] = true;
+                        bg[3, 2] = false;
+                        bg[3, 3] = false;
+                        bg[3, 4] = false;
+                        bg[3, 5] = true;
+                        bg[3, 6] = false;
+                        bg[3, 7] = false;
+                        bg[3, 8] = false;
+                        bg[3, 9] = true;
+
+                        bg[4, 1] = true;
+                        bg[4, 2] = true;
+                        bg[4, 3] = true;
+                        bg[4, 4] = true;
+                        bg[4, 5] = true;
+                        bg[4, 6] = true;
+                        bg[4, 7] = true;
+                        bg[4, 8] = true;
+                        bg[4, 9] = true;
+
+                        break;
+
+                    case "4":
+                        bg[1, 1] = true;
+                        bg[1, 2] = true;
+                        bg[1, 3] = true;
+                        bg[1, 4] = true;
+                        bg[1, 5] = true;
+                        bg[1, 6] = false;
+                        bg[1, 7] = false;
+                        bg[1, 8] = false;
+                        bg[1, 9] = false;
+
+                        bg[2, 1] = false;
+                        bg[2, 2] = false;
+                        bg[2, 3] = false;
+                        bg[2, 4] = false;
+                        bg[2, 5] = true;
+                        bg[2, 6] = false;
+                        bg[2, 7] = false;
+                        bg[2, 8] = false;
+                        bg[2, 9] = false;
+
+                        bg[3, 1] = false;
+                        bg[3, 2] = false;
+                        bg[3, 3] = false;
+                        bg[3, 4] = false;
+                        bg[3, 5] = true;
+                        bg[3, 6] = false;
+                        bg[3, 7] = false;
+                        bg[3, 8] = false;
+                        bg[3, 9] = false;
+
+                        bg[4, 1] = true;
+                        bg[4, 2] = true;
+                        bg[4, 3] = true;
+                        bg[4, 4] = true;
+                        bg[4, 5] = true;
+                        bg[4, 6] = true;
+                        bg[4, 7] = true;
+                        bg[4, 8] = true;
+                        bg[4, 9] = true;
+
+                        break;
+
+                    case "5":
+                        bg[1, 1] = true;
+                        bg[1, 2] = true;
+                        bg[1, 3] = true;
+                        bg[1, 4] = true;
+                        bg[1, 5] = true;
+                        bg[1, 6] = false;
+                        bg[1, 7] = false;
+                        bg[1, 8] = false;
+                        bg[1, 9] = true;
+
+                        bg[2, 1] = true;
+                        bg[2, 2] = false;
+                        bg[2, 3] = false;
+                        bg[2, 4] = false;
+                        bg[2, 5] = true;
+                        bg[2, 6] = false;
+                        bg[2, 7] = false;
+                        bg[2, 8] = false;
+                        bg[2, 9] = true;
+
+                        bg[3, 1] = true;
+                        bg[3, 2] = false;
+                        bg[3, 3] = false;
+                        bg[3, 4] = false;
+                        bg[3, 5] = true;
+                        bg[3, 6] = false;
+                        bg[3, 7] = false;
+                        bg[3, 8] = false;
+                        bg[3, 9] = true;
+
+                        bg[4, 1] = true;
+                        bg[4, 2] = false;
+                        bg[4, 3] = false;
+                        bg[4, 4] = false;
+                        bg[4, 5] = true;
+                        bg[4, 6] = true;
+                        bg[4, 7] = true;
+                        bg[4, 8] = true;
+                        bg[4, 9] = true;
+
+                        break;
+
+                    case "6":
+                        bg[1, 1] = true;
+                        bg[1, 2] = true;
+                        bg[1, 3] = true;
+                        bg[1, 4] = true;
+                        bg[1, 5] = true;
+                        bg[1, 6] = true;
+                        bg[1, 7] = true;
+                        bg[1, 8] = true;
+                        bg[1, 9] = true;
+
+                        bg[2, 1] = true;
+                        bg[2, 2] = false;
+                        bg[2, 3] = false;
+                        bg[2, 4] = false;
+                        bg[2, 5] = true;
+                        bg[2, 6] = false;
+                        bg[2, 7] = false;
+                        bg[2, 8] = false;
+                        bg[2, 9] = true;
+
+                        bg[3, 1] = true;
+                        bg[3, 2] = false;
+                        bg[3, 3] = false;
+                        bg[3, 4] = false;
+                        bg[3, 5] = true;
+                        bg[3, 6] = false;
+                        bg[3, 7] = false;
+                        bg[3, 8] = false;
+                        bg[3, 9] = true;
+
+                        bg[4, 1] = true;
+                        bg[4, 2] = false;
+                        bg[4, 3] = false;
+                        bg[4, 4] = false;
+                        bg[4, 5] = true;
+                        bg[4, 6] = true;
+                        bg[4, 7] = true;
+                        bg[4, 8] = true;
+                        bg[4, 9] = true;
+
+                        break;
+
+                    case "7":
+                        bg[1, 1] = false;
+                        bg[1, 2] = false;
+                        bg[1, 3] = false;
+                        bg[1, 4] = false;
+                        bg[1, 5] = false;
+                        bg[1, 6] = false;
+                        bg[1, 7] = false;
+                        bg[1, 8] = false;
+                        bg[1, 9] = false;
+
+                        bg[2, 1] = true;
+                        bg[2, 2] = false;
+                        bg[2, 3] = false;
+                        bg[2, 4] = false;
+                        bg[2, 5] = false;
+                        bg[2, 6] = false;
+                        bg[2, 7] = false;
+                        bg[2, 8] = false;
+                        bg[2, 9] = false;
+                        bg[3, 1] = false;
+
+                        bg[3, 2] = true;
+                        bg[3, 3] = false;
+                        bg[3, 4] = false;
+                        bg[3, 5] = false;
+                        bg[3, 6] = false;
+                        bg[3, 7] = false;
+                        bg[3, 8] = false;
+                        bg[3, 9] = false;
+
+                        bg[4, 1] = true;
+                        bg[4, 2] = true;
+                        bg[4, 3] = true;
+                        bg[4, 4] = true;
+                        bg[4, 5] = true;
+                        bg[4, 6] = true;
+                        bg[4, 7] = true;
+                        bg[4, 8] = true;
+                        bg[4, 9] = true;
+
+                        break;
+
+                    case "8":
+                        bg[1, 1] = true;
+                        bg[1, 2] = true;
+                        bg[1, 3] = true;
+                        bg[1, 4] = true;
+                        bg[1, 5] = true;
+                        bg[1, 6] = true;
+                        bg[1, 7] = true;
+                        bg[1, 8] = true;
+                        bg[1, 9] = true;
+
+                        bg[2, 1] = true;
+                        bg[2, 2] = false;
+                        bg[2, 3] = false;
+                        bg[2, 4] = false;
+                        bg[2, 5] = true;
+                        bg[2, 6] = false;
+                        bg[2, 7] = false;
+                        bg[2, 8] = false;
+                        bg[2, 9] = true;
+
+                        bg[3, 1] = true;
+                        bg[3, 2] = false;
+                        bg[3, 3] = false;
+                        bg[3, 4] = false;
+                        bg[3, 5] = true;
+                        bg[3, 6] = false;
+                        bg[3, 7] = false;
+                        bg[3, 8] = false;
+                        bg[3, 9] = true;
+
+                        bg[4, 1] = true;
+                        bg[4, 2] = true;
+                        bg[4, 3] = true;
+                        bg[4, 4] = true;
+                        bg[4, 5] = true;
+                        bg[4, 6] = true;
+                        bg[4, 7] = true;
+                        bg[4, 8] = true;
+                        bg[4, 9] = true;
+
+                        break;
+
+                    case "9":
+                        bg[1, 1] = true;
+                        bg[1, 2] = true;
+                        bg[1, 3] = true;
+                        bg[1, 4] = true;
+                        bg[1, 5] = true;
+                        bg[1, 6] = false;
+                        bg[1, 7] = false;
+                        bg[1, 8] = false;
+                        bg[1, 9] = true;
+
+                        bg[2, 1] = true;
+                        bg[2, 2] = false;
+                        bg[2, 3] = false;
+                        bg[2, 4] = false;
+                        bg[2, 5] = true;
+                        bg[2, 6] = false;
+                        bg[2, 7] = false;
+                        bg[2, 8] = false;
+                        bg[2, 9] = true;
+
+                        bg[3, 1] = true;
+                        bg[3, 2] = false;
+                        bg[3, 3] = false;
+                        bg[3, 4] = false;
+                        bg[3, 5] = true;
+                        bg[3, 6] = false;
+                        bg[3, 7] = false;
+                        bg[3, 8] = false;
+                        bg[3, 9] = true;
+
+                        bg[4, 1] = true;
+                        bg[4, 2] = true;
+                        bg[4, 3] = true;
+                        bg[4, 4] = true;
+                        bg[4, 5] = true;
+                        bg[4, 6] = true;
+                        bg[4, 7] = true;
+                        bg[4, 8] = true;
+                        bg[4, 9] = true;
+
+                        break;
+                    case "0":
+                        bg[1, 1] = true;
+                        bg[1, 2] = true;
+                        bg[1, 3] = true;
+                        bg[1, 4] = true;
+                        bg[1, 5] = true;
+                        bg[1, 6] = true;
+                        bg[1, 7] = true;
+                        bg[1, 8] = true;
+                        bg[1, 9] = true;
+
+                        bg[2, 1] = true;
+                        bg[2, 2] = false;
+                        bg[2, 3] = false;
+                        bg[2, 4] = false;
+                        bg[2, 5] = false;
+                        bg[2, 6] = false;
+                        bg[2, 7] = false;
+                        bg[2, 8] = false;
+                        bg[2, 9] = true;
+
+                        bg[3, 1] = true;
+                        bg[3, 2] = false;
+                        bg[3, 3] = false;
+                        bg[3, 4] = false;
+                        bg[3, 5] = false;
+                        bg[3, 6] = false;
+                        bg[3, 7] = false;
+                        bg[3, 8] = false;
+                        bg[3, 9] = true;
+
+                        bg[4, 1] = true;
+                        bg[4, 2] = true;
+                        bg[4, 3] = true;
+                        bg[4, 4] = true;
+                        bg[4, 5] = true;
+                        bg[4, 6] = true;
+                        bg[4, 7] = true;
+                        bg[4, 8] = true;
+                        bg[4, 9] = true;
+
+                        break;
                 }
                 for (int x = 1; x <= 4; x++)
                 {
                     for (int y = 1; y <= 9; y++)
                     {
                         panel1.Controls.Add(new DigitalNumber() {
-                            isfilled = true/*bg[x, y]*/,
+                            isfilled = bg[x, y],
                             sor = x,
-                            oszlop=y
-                        });
+                            oszlop=y,
+                            hely =i,
+                            Top= y * 10,
+                            Left=x*10+10*5*i,
+                        }
+                        );
 
                     }
 

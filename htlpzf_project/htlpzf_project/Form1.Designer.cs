@@ -51,6 +51,8 @@
             this.forecastgrid = new System.Windows.Forms.DataGridView();
             this.exportExcelbtn = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.label6 = new System.Windows.Forms.Label();
+            this.panel2 = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.goldPricegrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.breadPricegrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.exchngRategrid)).BeginInit();
@@ -127,23 +129,23 @@
             this.goldPricegrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.goldPricegrid.Location = new System.Drawing.Point(12, 99);
             this.goldPricegrid.Name = "goldPricegrid";
-            this.goldPricegrid.Size = new System.Drawing.Size(240, 339);
+            this.goldPricegrid.Size = new System.Drawing.Size(189, 339);
             this.goldPricegrid.TabIndex = 6;
             // 
             // breadPricegrid
             // 
             this.breadPricegrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.breadPricegrid.Location = new System.Drawing.Point(267, 99);
+            this.breadPricegrid.Location = new System.Drawing.Point(207, 99);
             this.breadPricegrid.Name = "breadPricegrid";
-            this.breadPricegrid.Size = new System.Drawing.Size(240, 339);
+            this.breadPricegrid.Size = new System.Drawing.Size(214, 339);
             this.breadPricegrid.TabIndex = 7;
             // 
             // exchngRategrid
             // 
             this.exchngRategrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.exchngRategrid.Location = new System.Drawing.Point(513, 99);
+            this.exchngRategrid.Location = new System.Drawing.Point(427, 99);
             this.exchngRategrid.Name = "exchngRategrid";
-            this.exchngRategrid.Size = new System.Drawing.Size(240, 339);
+            this.exchngRategrid.Size = new System.Drawing.Size(203, 339);
             this.exchngRategrid.TabIndex = 8;
             // 
             // countrycombo
@@ -196,6 +198,7 @@
             // 
             // button1
             // 
+            this.button1.Cursor = System.Windows.Forms.Cursors.Hand;
             this.button1.Location = new System.Drawing.Point(416, 23);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(114, 55);
@@ -264,16 +267,17 @@
             // forecastgrid
             // 
             this.forecastgrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.forecastgrid.Location = new System.Drawing.Point(759, 99);
+            this.forecastgrid.Location = new System.Drawing.Point(636, 99);
             this.forecastgrid.Name = "forecastgrid";
-            this.forecastgrid.Size = new System.Drawing.Size(240, 339);
+            this.forecastgrid.Size = new System.Drawing.Size(221, 339);
             this.forecastgrid.TabIndex = 13;
             // 
             // exportExcelbtn
             // 
-            this.exportExcelbtn.Location = new System.Drawing.Point(759, 75);
+            this.exportExcelbtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.exportExcelbtn.Location = new System.Drawing.Point(756, 12);
             this.exportExcelbtn.Name = "exportExcelbtn";
-            this.exportExcelbtn.Size = new System.Drawing.Size(239, 21);
+            this.exportExcelbtn.Size = new System.Drawing.Size(101, 81);
             this.exportExcelbtn.TabIndex = 18;
             this.exportExcelbtn.Text = "Export to Excel";
             this.exportExcelbtn.UseVisualStyleBackColor = true;
@@ -281,16 +285,38 @@
             // 
             // panel1
             // 
-            this.panel1.Location = new System.Drawing.Point(760, 12);
+            this.panel1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.panel1.Location = new System.Drawing.Point(863, 99);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(238, 57);
+            this.panel1.Size = new System.Drawing.Size(278, 153);
             this.panel1.TabIndex = 19;
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("Microsoft Sans Serif", 19F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.label6.ForeColor = System.Drawing.Color.Black;
+            this.label6.Location = new System.Drawing.Point(863, 61);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(287, 30);
+            this.label6.TabIndex = 18;
+            this.label6.Text = "Max Sell Price in USD";
+            // 
+            // panel2
+            // 
+            this.panel2.Cursor = System.Windows.Forms.Cursors.Default;
+            this.panel2.Location = new System.Drawing.Point(863, 258);
+            this.panel2.Name = "panel2";
+            this.panel2.Size = new System.Drawing.Size(278, 180);
+            this.panel2.TabIndex = 20;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1010, 450);
+            this.ClientSize = new System.Drawing.Size(1153, 450);
+            this.Controls.Add(this.panel2);
+            this.Controls.Add(this.label6);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.exportExcelbtn);
             this.Controls.Add(this.forecastgrid);
@@ -343,6 +369,8 @@
         private System.Windows.Forms.DataGridView forecastgrid;
         private System.Windows.Forms.Button exportExcelbtn;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Panel panel2;
     }
 }
 
