@@ -225,7 +225,7 @@ namespace htlpzf_project
                     for (int y = 1; y <= 9; y++)
                     {
                         panel1.Controls.Add(new DigitalNumber() {
-                            isfilled = bg[x, y],
+                            isfilled = true/*bg[x, y]*/,
                             sor = x,
                             oszlop=y
                         });

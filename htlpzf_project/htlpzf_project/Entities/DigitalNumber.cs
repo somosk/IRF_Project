@@ -12,6 +12,7 @@ namespace htlpzf_project.Entities
     {
         public bool _isfilled;
         public bool isfilled { get { return _isfilled; } set {
+                _isfilled = value;
                 if (_isfilled)
                 {
                     Text = "X";
@@ -24,9 +25,13 @@ namespace htlpzf_project.Entities
                 }
             } }
         public int _sor;
-        public int sor { get { return _sor; } set { Left = _sor * 60 + 20; } }
+        public int sor { get { return _sor; } set {
+                _sor = value;
+                Left = _sor * 60 + 20; } }
         public int _oszlop;
-        public int oszlop { get { return _oszlop; } set { Top = _oszlop * 60 + 20; } }
+        public int oszlop { get { return _oszlop; } set {
+                _oszlop = value;
+                Top = _oszlop * 60 + 20; } }
         public DigitalNumber()
         {
             BackColor = Color.LightGray;
