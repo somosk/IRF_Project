@@ -275,6 +275,7 @@
             // exportExcelbtn
             // 
             this.exportExcelbtn.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.exportExcelbtn.Enabled = false;
             this.exportExcelbtn.Location = new System.Drawing.Point(756, 12);
             this.exportExcelbtn.Name = "exportExcelbtn";
             this.exportExcelbtn.Size = new System.Drawing.Size(101, 81);
@@ -301,6 +302,7 @@
             this.label6.Size = new System.Drawing.Size(287, 30);
             this.label6.TabIndex = 18;
             this.label6.Text = "Max Sell Price in USD";
+            this.label6.Visible = false;
             // 
             // panel2
             // 

@@ -156,12 +156,13 @@ namespace htlpzf_project
                     
             }
             exportExcelbtn.Enabled = true;
+            label6.Visible = true;
         }
 
         private void exportExcelbtn_Click(object sender, EventArgs e)
         {
-            //CreateExcel();
-            //CreateTable();
+            CreateExcel();
+            CreateTable();
 
             DrawNumber();
             //Shine();
@@ -187,8 +188,7 @@ namespace htlpzf_project
         private void DrawNumber()
         {
             panel1.Controls.Clear();
-            maxvalue = "1234"; 
-                //(Math.Round((from x in foreCast select x.gold).Max(),0)).ToString();
+            maxvalue = (Math.Round((from x in foreCast select x.gold).Max(),0)).ToString();
             for (int i = 0; i < maxvalue.Length; i++)
             {
                 string szamjegy = maxvalue[i].ToString();
@@ -472,9 +472,9 @@ namespace htlpzf_project
                         bg[2, 7] = false;
                         bg[2, 8] = false;
                         bg[2, 9] = false;
-                        bg[3, 1] = false;
 
-                        bg[3, 2] = true;
+                        bg[3, 1] = true;
+                        bg[3, 2] = false;
                         bg[3, 3] = false;
                         bg[3, 4] = false;
                         bg[3, 5] = false;
