@@ -17,6 +17,7 @@ namespace htlpzf_project
 {
     public partial class Form1 : Form
     {
+        
         List<ExchangeRates> exchangeRates = new List<ExchangeRates>();
         List<GoldPrice> goldPrices = new List<GoldPrice>();
         List<BreadPrice> breadPrices = new List<BreadPrice>();
@@ -114,8 +115,9 @@ namespace htlpzf_project
                         exchangeRates.Add(new ExchangeRates()
                         {
                             year = int.Parse(line[0]),
-                            Country = line[1],
-                            rate = double.Parse(line[2])
+                            Country = (CountyEnum)Enum.Parse(typeof(CountyEnum), line[1]),
+                            rate = double.Parse(line[2]),
+                            countrycode= int.Parse(line[1])
                         });
                     }
                 };
@@ -157,6 +159,7 @@ namespace htlpzf_project
             }
             exportExcelbtn.Enabled = true;
             label6.Visible = true;
+            DrawNumber();
         }
 
         private void exportExcelbtn_Click(object sender, EventArgs e)
@@ -164,20 +167,20 @@ namespace htlpzf_project
             CreateExcel();
             CreateTable();
 
-            DrawNumber();
+            
             //Shine();
         }
 
         private void Shine()
         {
-            panel2.Controls.Clear();
+            /*panel2.Controls.Clear();
             List<Control> ctrls = new List<Control>();
             foreach (Control c in panel1.Controls)
             {
                 ctrls.Add(c);
             }
             
-            panel2.Controls.AddRange(ctrls.ToArray());
+            panel2.Controls.AddRange(ctrls.ToArray());*/
             
         }
 
@@ -629,9 +632,7 @@ namespace htlpzf_project
                     {
                         panel1.Controls.Add(new DigitalNumber() {
                             isfilled = bg[x, y],
-                            sor = x,
-                            oszlop=y,
-                            hely =i,
+                           
                             Top= y * 10,
                             Left=x*10+10*5*i,
                         }
@@ -665,8 +666,11 @@ namespace htlpzf_project
                 values[counter, 0] = f.year;
                 values[counter, 1] = f.gold;
                 values[counter, 2] = f.bread;
-                values[counter, 3] = 2; // ide jön majd a vlautakalkulátor
-                
+                var currentrate = (from x in exchangeRates
+                                   where x.Country == (CountyEnum)countrycombo.SelectedIndex+1 select x.countrycode).FirstOrDefault();
+                values[counter, 3] = -1364 + 0.67 * f.year + 6.33 * currentrate;
+  
+
                 values[counter, 4] = "=(" + GetCell(counter + 2, 2)+"*"+purchaseAmount.Value+"*"+ GetCell(counter + 2, 4)+")";
                 
                 counter++;

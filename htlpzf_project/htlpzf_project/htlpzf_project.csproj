@@ -48,6 +48,7 @@
   <ItemGroup>
     <Compile Include="Entities\BackGround.cs" />
     <Compile Include="Entities\BreadPrice.cs" />
+    <Compile Include="Entities\CountyEnum.cs" />
     <Compile Include="Entities\DigitalNumber.cs">
       <SubType>Component</SubType>
     </Compile>

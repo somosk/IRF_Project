@@ -191,7 +191,7 @@
             this.purchaseDatapanel.Controls.Add(this.countrycombo);
             this.purchaseDatapanel.Controls.Add(this.label2);
             this.purchaseDatapanel.Controls.Add(this.label1);
-            this.purchaseDatapanel.Location = new System.Drawing.Point(220, 12);
+            this.purchaseDatapanel.Location = new System.Drawing.Point(217, 12);
             this.purchaseDatapanel.Name = "purchaseDatapanel";
             this.purchaseDatapanel.Size = new System.Drawing.Size(533, 81);
             this.purchaseDatapanel.TabIndex = 12;

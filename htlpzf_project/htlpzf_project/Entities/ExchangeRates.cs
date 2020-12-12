@@ -9,7 +9,8 @@ namespace htlpzf_project.Entities
     public class ExchangeRates
     {
         public int year { get; set; }
-        public String Country { get; set; }
+        public CountyEnum Country { get; set; }
         public double rate { get; set; }
+        public int countrycode;
     }
 }
