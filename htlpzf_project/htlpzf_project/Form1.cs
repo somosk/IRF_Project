@@ -41,97 +41,126 @@ namespace htlpzf_project
 
         private void button1_Click(object sender, EventArgs e)
         {
-            OpenFileDialog opfd = new OpenFileDialog();
-            opfd.Multiselect = false;
-            //opfd.Filter = "CSV files (.csv)|.csv";
-            if (opfd.ShowDialog() == DialogResult.OK)
+            try
             {
-                string csvpath = opfd.FileName;
-                using (StreamReader sr = new StreamReader(csvpath, Encoding.Default))
+                OpenFileDialog opfd = new OpenFileDialog();
+                opfd.Multiselect = false;
+                //opfd.Filter = "CSV files (.csv)|.csv";
+                if (opfd.ShowDialog() == DialogResult.OK)
                 {
-                    while (!sr.EndOfStream)
+                    string csvpath = opfd.FileName;
+                    using (StreamReader sr = new StreamReader(csvpath, Encoding.Default))
                     {
-
-
-                        var line = sr.ReadLine().Split(';');
-                        goldPrices.Add(new GoldPrice()
+                        while (!sr.EndOfStream)
                         {
-                            year = int.Parse(line[0]),
-                            price = double.Parse(line[1])
-                        });
-                    }
-                };
-                goldlbl.Text = "Success";
-                goldlbl.ForeColor = Color.Green;
-                goldPricegrid.DataSource = goldPrices;
+
+
+                            var line = sr.ReadLine().Split(';');
+                            goldPrices.Add(new GoldPrice()
+                            {
+                                year = int.Parse(line[0]),
+                                price = double.Parse(line[1])
+                            });
+                        }
+                    };
+                    goldlbl.Text = "Success";
+                    goldlbl.ForeColor = Color.Green;
+                    goldPricegrid.DataSource = goldPrices;
+                }
             }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+            
 
         }
 
         private void LoadBreadbtn_Click(object sender, EventArgs e)
         {
-            OpenFileDialog opfd = new OpenFileDialog();
-            opfd.Multiselect = false;
-           // opfd.Filter = "CSV files (.csv)|.csv";
-            if (opfd.ShowDialog() == DialogResult.OK)
+            try
             {
-                string csvpath = opfd.FileName;
-                using (StreamReader sr = new StreamReader(csvpath, Encoding.Default))
+                OpenFileDialog opfd = new OpenFileDialog();
+                opfd.Multiselect = false;
+                // opfd.Filter = "CSV files (.csv)|.csv";
+                if (opfd.ShowDialog() == DialogResult.OK)
                 {
-                    while (!sr.EndOfStream)
+                    string csvpath = opfd.FileName;
+                    using (StreamReader sr = new StreamReader(csvpath, Encoding.Default))
                     {
-
-
-                        var line = sr.ReadLine().Split(';');
-                        breadPrices.Add(new BreadPrice()
+                        while (!sr.EndOfStream)
                         {
-                            year = int.Parse(line[0]),
-                            price = double.Parse(line[1])
-                        });
-                    }
-                };
-                breadlbl.Text = "Success";
-                breadlbl.ForeColor = Color.Green;
-                breadPricegrid.DataSource = breadPrices;
+
+
+                            var line = sr.ReadLine().Split(';');
+                            breadPrices.Add(new BreadPrice()
+                            {
+                                year = int.Parse(line[0]),
+                                price = double.Parse(line[1])
+                            });
+                        }
+                    };
+                    breadlbl.Text = "Success";
+                    breadlbl.ForeColor = Color.Green;
+                    breadPricegrid.DataSource = breadPrices;
+                }
             }
+            catch (Exception ex)
+            {
+
+                MessageBox.Show(ex.Message);
+            }
+
+            
 
         }
 
         private void LoadEchbtn_Click(object sender, EventArgs e)
         {
-            OpenFileDialog opfd = new OpenFileDialog();
-            opfd.Multiselect = false;
-           // opfd.Filter = "CSV files (.csv)|.csv";
-            if (opfd.ShowDialog() == DialogResult.OK)
+
+            try
             {
-                string csvpath = opfd.FileName;
-                using (StreamReader sr = new StreamReader(csvpath, Encoding.Default))
+                OpenFileDialog opfd = new OpenFileDialog();
+                opfd.Multiselect = false;
+                // opfd.Filter = "CSV files (.csv)|.csv";
+                if (opfd.ShowDialog() == DialogResult.OK)
                 {
-                    while (!sr.EndOfStream)
+                    string csvpath = opfd.FileName;
+                    using (StreamReader sr = new StreamReader(csvpath, Encoding.Default))
                     {
-
-
-                        var line = sr.ReadLine().Split(';');
-                        exchangeRates.Add(new ExchangeRates()
+                        while (!sr.EndOfStream)
                         {
-                            year = int.Parse(line[0]),
-                            Country = (CountyEnum)Enum.Parse(typeof(CountyEnum), line[1]),
-                            rate = double.Parse(line[2]),
-                            countrycode= int.Parse(line[1])
-                        });
+
+
+                            var line = sr.ReadLine().Split(';');
+                            exchangeRates.Add(new ExchangeRates()
+                            {
+                                year = int.Parse(line[0]),
+                                Country = (CountyEnum)Enum.Parse(typeof(CountyEnum), line[1]),
+                                rate = double.Parse(line[2]),
+                                countrycode = int.Parse(line[1])
+                            });
+                        }
+                    };
+                    exchnglbl.Text = "Success";
+                    exchnglbl.ForeColor = Color.Green;
+                    exchngRategrid.DataSource = exchangeRates;
+                    var distCountries = (from x in exchangeRates select x.Country).Distinct();
+                    foreach (var item in distCountries)
+                    {
+                        countrycombo.Items.Add(item);
                     }
-                };
-                exchnglbl.Text = "Success";
-                exchnglbl.ForeColor = Color.Green;
-                exchngRategrid.DataSource = exchangeRates;
-                var distCountries = (from x in exchangeRates select x.Country).Distinct();
-                foreach (var item in distCountries)
-                {
-                    countrycombo.Items.Add(item);
+                    countrycombo.Enabled = true;
+
                 }
-                countrycombo.Enabled = true;
 
             }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+           
         }
         List<ForeCast> foreCast = new List<ForeCast>();
         private void button1_Click_1(object sender, EventArgs e)
